@@ -2,35 +2,16 @@
 
 var muso = require('../lib/muso.js');
 
-/*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
-
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
-
-exports['awesome'] = {
+exports['notes'] = {
   setUp: function(done) {
     // setup here
     done();
   },
-  'no args': function(test) {
-    test.expect(1);
+  'correctly matches array of notes': function(notes) {
+    notes.expect(1);
     // tests here
-    test.equal(muso.awesome(), 'awesome', 'should be awesome.');
-    test.done();
+    var allNotes=new Array("A","A#","B","C","C#","D","D#","E","F","F#","G","G#");
+    notes.deepEqual(muso.notes(), allNotes,'notes are incorrect');
+    notes.done();
   },
 };
