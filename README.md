@@ -25,3 +25,6 @@ _(Nothing yet)_
 ## License
 Copyright (c) 2013 Andy Griffiths  
 Licensed under the MIT license.
+
+#Been using this guide to get up and running
+## http://markdalgleish.com/2012/09/test-driven-node-js-development-with-grunt/
