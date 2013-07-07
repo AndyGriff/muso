@@ -74,18 +74,26 @@ exports['scale'] = {
 
 
     scale.done();
-  }
-};
-exports['chords'] = {
-  setUp: function(done) {
-    // setup here
-    done();
   },
-  'correctly gives chords for a key': function(chords) {
-    chords.expect(2);
+  'correctly gives minor scale notes': function(scale) {
+    scale.expect(2);
 
+    // a minor 
+    var aExpectedNotes=new Array("A","B","C","D","E","F","G");
+	var aKey = "A";
 
-    chords.done();
-  }
+    var aScale = muso.minor(aKey);
+    scale.deepEqual(aScale,aExpectedNotes,'A Minor scale is incorrect');
+
+    // c minor 
+    var cExpectedNotes=new Array("C","D","D#","F","G","G#","A#");
+	var cKey = "C";
+
+    var cScale = muso.minor(cKey);
+    scale.deepEqual(cScale,cExpectedNotes,'C Minor scale is incorrect');
+
+    scale.done();
+  },
 };
+
 
