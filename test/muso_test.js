@@ -48,31 +48,44 @@ exports['enharmonic'] = {
     enharmonic.done();
   }
 };
-exports['major'] = {
+exports['scale'] = {
   setUp: function(done) {
     // setup here
     done();
   },
-  'correctly gives major scale notes': function(major) {
-    major.expect(1);
+  'correctly gives major scale notes': function(scale) {
+    scale.expect(2);
 
     // tests here
 
+    // G MAJOR
+    var gExpectedNotes=new Array("G","A","B","C","D","E","F#");
+	var gKey = "G";
+
+    var gScale = muso.major(gKey);
+    scale.deepEqual(gScale, gExpectedNotes,'G Major scale is incorrect');
+	
     // C MAJOR
-    var expectedNotes=new Array("C","D","E","F","G","A","B");
-	var key = "C";
+    var cExpectedNotes=new Array("C","D","E","F","G","A","B");
+	var cKey = "C";
 
-    var scale = muso.major(key);
-    major.deepEqual(scale, expectedNotes,'C Major scale is incorrect');
+    var cScale = muso.major(cKey);
+    scale.deepEqual(cScale, cExpectedNotes,'C Major scale is incorrect');
 
-    // C MAJOR
-    expectedNotes=new Array("G","A","B","C","D","E","F#");
-	key = "G";
 
-    scale = muso.major(key);
-console.log("scale is " + scale)
-    major.deepEqual(scale, expectedNotes,'G Major scale is incorrect');
-    major.done();
+    scale.done();
+  }
+};
+exports['chords'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'correctly gives chords for a key': function(chords) {
+    chords.expect(2);
+
+
+    chords.done();
   }
 };
 
