@@ -53,7 +53,7 @@ exports['major'] = {
     // setup here
     done();
   },
-  'correctly gives enharmonic equivalents': function(major) {
+  'correctly gives major scale notes': function(major) {
     major.expect(1);
 
     // tests here
@@ -64,6 +64,15 @@ exports['major'] = {
 
     var scale = muso.major(key);
     major.deepEqual(scale, expectedNotes,'C Major scale is incorrect');
+
+    // C MAJOR
+    expectedNotes=new Array("G","A","B","C","D","E","F#");
+	key = "G";
+
+    scale = muso.major(key);
+console.log("scale is " + scale)
+    major.deepEqual(scale, expectedNotes,'G Major scale is incorrect');
     major.done();
   }
 };
+
