@@ -86,7 +86,7 @@ exports['scale'] = {
     scale.deepEqual(aScale,aExpectedNotes,'A Minor scale is incorrect');
 
     // c minor 
-    var cExpectedNotes=new Array("C","D","D#","F","G","G#","A#");
+    var cExpectedNotes=new Array("C","D","Eb","F","G","Ab","Bb");
 	var cKey = "C";
 
     var cScale = muso.minor(cKey);
@@ -94,6 +94,30 @@ exports['scale'] = {
 
     scale.done();
   },
+};
+exports['chords'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'correctly gives chords for key': function(chords) {
+    chords.expect(2);
+
+	// c Major 
+    var cExpectedChords=new Array("Cmaj","Dmin","Emin","Fmaj","Gmaj","Amin","Bdim");
+	var cKey = "Cmaj";
+
+    var cChords = muso.chords(cKey);
+    chords.deepEqual(cChords,cExpectedChords,'C Major chords are incorrect');
+
+	// e minor 
+    var eExpectedChords=new Array("Emin","F#dim","Gmaj","Amin","Bmin","Cmaj","Dmaj");
+	var eKey = "Emin";
+
+    var eChords = muso.chords(eKey);
+    chords.deepEqual(eChords,eExpectedChords,'E minor chords are incorrect');
+    chords.done();
+  }
 };
 
 
