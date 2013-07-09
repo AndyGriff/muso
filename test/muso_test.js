@@ -119,5 +119,20 @@ exports['chords'] = {
     chords.done();
   }
 };
+exports['sequence'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'gives a sequence of defined length': function(sequence) {
+    sequence.expect(1);
+
+	var expectedLength = 8;
+	var aKey = "Cmaj";
+	var seq = muso.sequence(aKey,expectedLength);
+	sequence.strictEqual(seq.length, expectedLength, "Sequence is incorrect");
+    sequence.done();
+  }
+};
 
 
